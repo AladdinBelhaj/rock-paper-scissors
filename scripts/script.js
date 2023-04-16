@@ -11,8 +11,23 @@ function getComputerChoice(){
     return choice;
 }
 
-const playerChoice = "scissors";
+function getPlayerChoice(){
+    let choice = "";
+    while(1){
+        choice = prompt("What is your choice?").toLowerCase();
+        choice = choice.trim();
+        if(choice == "rock" || choice == "paper" || choice == "scissors"){
+            break;
+        }
+    }
+    return choice;
+}
+
+
+const playerChoice = getPlayerChoice();
 const computerChoice = getComputerChoice();
+
+
 
 function playRound(playerChoice,computerChoice){
     playerChoice = playerChoice.toLowerCase();
