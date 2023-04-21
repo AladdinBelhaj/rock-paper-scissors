@@ -30,24 +30,57 @@ function getComputerChoice(){
 
     if(playerChoice == computerChoice){
         console.log(`Draw!`);
+        playerHand.addEventListener('animationend',function(){
+            playerHand.style.border = "5px solid yellow";
+            computerHand.style.border = "5px solid yellow";
+        }, {once:true});
     }else if(playerChoice=="rock" && computerChoice=="scissors"){
         console.log(`You win! Rock beats scissors!`);
         playerScore++;
+        playerHand.addEventListener('animationend',function(){
+            playerHand.style.border = "5px solid green";
+            computerHand.style.border = "5px solid red";
+        }, {once:true});
+
     }else if(playerChoice=="scissors" && computerChoice=="paper"){
         console.log(`You win! Scissors beat paper!`);
         playerScore++;
+        playerHand.addEventListener('animationend',function(){
+            playerHand.style.border = "5px solid green";
+            computerHand.style.border = "5px solid red";
+        }, {once:true});
+
     }else if(playerChoice=="paper" && computerChoice=="rock"){
         console.log(`You win! Paper beats rock!`);
         playerScore++;
+        playerHand.addEventListener('animationend',function(){
+            playerHand.style.border = "5px solid green";
+            computerHand.style.border = "5px solid red";
+        }, {once:true});
+
     }else if(computerChoice=="rock" && playerChoice=="scissors"){
         console.log(`You lose! Rock beats scissors!`);
         computerScore++;
+        playerHand.addEventListener('animationend',function(){
+            computerHand.style.border = "5px solid green";
+            playerHand.style.border = "5px solid red";
+        }, {once:true});
+
     }else if(computerChoice=="scissors" && playerChoice=="paper"){
         console.log(`You lose! Scissors beat paper!`);
         computerScore++;
+        playerHand.addEventListener('animationend',function(){
+            computerHand.style.border = "5px solid green";
+            playerHand.style.border = "5px solid red";
+        }, {once:true});
+
     }else if(computerChoice=="paper" && playerChoice=="rock"){
         console.log(`You lose! Paper beats rock!`);
         computerScore++;
+        playerHand.addEventListener('animationend',function(){
+            computerHand.style.border = "5px solid green";
+            playerHand.style.border = "5px solid red";
+        }, {once:true});
     }
 
     if(playerScore == 5){
@@ -65,8 +98,9 @@ function getComputerChoice(){
 playerHand = document.createElement('img');
 
 function test(playerChoice){
-    container = document.querySelector('#container');    
+    container = document.querySelector('#container'); // select container
     playerHand.src = `img/${playerChoice}-reverse.png`;
+    playerHand.style.border = "none"; // reset style after every round
     container.appendChild(playerHand);
     rotatePlayer(playerHand);
     return playerHand;
@@ -75,8 +109,9 @@ function test(playerChoice){
 computerHand = document.createElement('img');
 
 function test2(computerChoice){
-    container = document.querySelector('#container');
-    computerHand.src = `img/${computerChoice}.png`;
+    container = document.querySelector('#container'); // select container
+    computerHand.src = `img/${computerChoice}.png`; 
+    computerHand.style.border = "none"; // reset style after every round
     container.appendChild(computerHand);
     rotateComputer(computerHand);
     return computerHand;
@@ -84,10 +119,10 @@ function test2(computerChoice){
 
 
 function rotateComputer(img){
-    img.classList.add('rotate-90-br-cw');
+    img.classList.add('rotate-90-br-cw'); // animate hand after every round
 }
 
 function rotatePlayer(img){
-    img.classList.add('rotate-90-bl-ccw');
+    img.classList.add('rotate-90-bl-ccw'); // animate hand after every round
 }
 
