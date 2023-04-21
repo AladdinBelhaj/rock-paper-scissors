@@ -1,3 +1,6 @@
+/*
+
+
 function getComputerChoice(){
     let probability = (Math.random() * 100).toFixed(2);
     let choice;
@@ -10,26 +13,34 @@ function getComputerChoice(){
     }
     return choice;
 }
+*/
+
+
+const btns = document.querySelectorAll('button');
+let playerChoice;
+
+btns.forEach(btn =>{
+    btn.addEventListener('click',getPlayerChoice);
+});
 
 function getPlayerChoice(){
-    let choice = "";
-    while(1){
-        choice = prompt("What is your choice?").toLowerCase();
-        choice = choice.trim();
-        if(choice == "rock" || choice == "paper" || choice == "scissors"){
-            break;
-        }
-    }
-    return choice;
+    console.log(this.id);
+    playerChoice = this.id;
+    console.log(playerChoice);
 }
 
 
-const playerChoice = getPlayerChoice();
+
+
+
+
+
+/*
 const computerChoice = getComputerChoice();
 
 
 
-function playRound(playerChoice,computerChoice){
+ function playRound(playerChoice,computerChoice){
     playerChoice = playerChoice.toLowerCase();
 
     if(playerChoice == computerChoice){
@@ -49,31 +60,5 @@ function playRound(playerChoice,computerChoice){
     }
 
 }
-
-
-function game(){
-    let computerScore = 0;
-    let playerScore = 0;
-    let result;
-
-    for(let i = 0; i < 5; i++){
-        result = playRound(playerChoice,computerChoice);
-        console.log(result);
-
-        result.includes("lose!") ? computerScore++ : playerScore++;
-
-    }
-
-    if(computerScore > playerScore){
-        console.log("You lose!");
-    }else{
-        console.log("You win!")
-    }
-
-}
-
-
-
-game();
-
+*/
 
