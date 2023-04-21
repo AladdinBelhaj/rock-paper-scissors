@@ -24,8 +24,8 @@ function getComputerChoice(){
     const playerChoice = this.id;
 
 
-    test(playerChoice);
-    test2(computerChoice);
+    playerHand = test(playerChoice);
+    computerHand = test2(computerChoice);
 
 
     if(playerChoice == computerChoice){
@@ -66,10 +66,10 @@ playerHand = document.createElement('img');
 
 function test(playerChoice){
     container = document.querySelector('#container');    
-    playerHand.src = `img/${playerChoice}.png`;
+    playerHand.src = `img/${playerChoice}-reverse.png`;
     container.appendChild(playerHand);
-    rotate(playerHand);
-    
+    rotatePlayer(playerHand);
+    return playerHand;
 }
 
 computerHand = document.createElement('img');
@@ -78,12 +78,16 @@ function test2(computerChoice){
     container = document.querySelector('#container');
     computerHand.src = `img/${computerChoice}.png`;
     container.appendChild(computerHand);
-    rotate(computerHand);
+    rotateComputer(computerHand);
+    return computerHand;
 }
 
 
-
-function rotate(img){
+function rotateComputer(img){
     img.classList.add('rotate-90-br-cw');
+}
+
+function rotatePlayer(img){
+    img.classList.add('rotate-90-bl-ccw');
 }
 
