@@ -22,7 +22,12 @@ function getComputerChoice(){
  function playRound(){
     const computerChoice = getComputerChoice();
     const playerChoice = this.id;
+
+
     test(playerChoice);
+    test2(computerChoice);
+
+
     if(playerChoice == computerChoice){
         console.log(`Draw!`);
     }else if(playerChoice=="rock" && computerChoice=="scissors"){
@@ -57,20 +62,28 @@ function getComputerChoice(){
 
 }
 
+playerHand = document.createElement('img');
+
 function test(playerChoice){
+    container = document.querySelector('#container');    
+    playerHand.src = `img/${playerChoice}.png`;
+    container.appendChild(playerHand);
+    rotate(playerHand);
+    
+}
+
+computerHand = document.createElement('img');
+
+function test2(computerChoice){
     container = document.querySelector('#container');
-    img = document.createElement('img');
-    img.src = `img/${playerChoice}.png`;
-    container.appendChild(img);
-    rotate();
+    computerHand.src = `img/${computerChoice}.png`;
+    container.appendChild(computerHand);
+    rotate(computerHand);
 }
 
 
 
-function rotate(){
+function rotate(img){
     img.classList.add('rotate-90-br-cw');
-    img.addEventListener('animationend',function(){
-        img.classList.remove('rotate-90-br-cw');
-        img.classList.add('rotate-90-br-cw-normal')
-    },{once:true});
 }
+
