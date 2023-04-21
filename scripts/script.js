@@ -1,19 +1,6 @@
-/*
 
 
-function getComputerChoice(){
-    let probability = (Math.random() * 100).toFixed(2);
-    let choice;
-    if (probability<=33.33){
-        choice = "rock"
-    }else if(probability<=66.66){
-        choice = "paper";
-    }else{
-        choice = "scissors";
-    }
-    return choice;
-}
-*/
+
 
 
 const btns = document.querySelectorAll('button');
@@ -26,19 +13,28 @@ btns.forEach(btn =>{
 function getPlayerChoice(){
     console.log(this.id);
     playerChoice = this.id;
-    console.log(playerChoice);
 }
 
 
 
 
+function getComputerChoice(){
+    let probability = (Math.random() * 100).toFixed(2);
+    if (probability<=33.33){
+        return "rock"
+    }else if(probability<=66.66){
+        return "paper";
+    }else{
+        return "scissors";
+    }
+}
 
 
+
+const computerChoice = getComputerChoice();
+console.log(computerChoice);
 
 /*
-const computerChoice = getComputerChoice();
-
-
 
  function playRound(playerChoice,computerChoice){
     playerChoice = playerChoice.toLowerCase();
