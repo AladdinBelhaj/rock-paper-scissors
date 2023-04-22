@@ -6,6 +6,7 @@ html {
   background-size: cover;
 }
 
+
 h1{
   font-family: 'VT323', monospace;
   font-size: 45px;
@@ -18,7 +19,6 @@ h1{
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
-  gap: 25px;
   }
 
 
