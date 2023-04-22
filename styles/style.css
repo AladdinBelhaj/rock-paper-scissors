@@ -4,11 +4,20 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  font-family: 'VT323', monospace;
+}
+
+
+
+.scoreBoard{
+  font-size: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 
 h1{
-  font-family: 'VT323', monospace;
   font-size: 45px;
   text-align: center;
 }
@@ -43,6 +52,10 @@ h1{
   drop-shadow(-3px -3px 0 rgb(255, 251, 0));
   filter: drop-shadow(3px 3px 0 rgb(255, 251, 0)) 
   drop-shadow(-3px -3px 0 rgb(255, 251, 0));
+}
+
+.end{
+  display: none;
 }
 
 
