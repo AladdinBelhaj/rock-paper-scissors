@@ -22,6 +22,9 @@ function getComputerChoice(){
  function playRound(){
     const computerChoice = getComputerChoice();
     const playerChoice = this.id;
+    const playerScoreTab = document.querySelector('#playerScoreTab');
+    const computerScoreTab = document.querySelector('#computerScoreTab');
+
 
 
     playerHand = playerAnimation(playerChoice);
@@ -36,64 +39,70 @@ function getComputerChoice(){
             computerHand.classList.add('draw');
         }, {once:true});
     }else if(playerChoice=="rock" && computerChoice=="scissors"){
-        console.log(`You win! Rock beats scissors!`);
-        playerScore++;
+        
         playerHand.addEventListener('animationend',function(){
             playerHand.classList.add('win');        // incase of win, add green border to hand vector
             computerHand.classList.add('lose');     // incase of loss, add red border to hand vector
+            playerScore++;
         }, {once:true});
 
     }else if(playerChoice=="scissors" && computerChoice=="paper"){
         console.log(`You win! Scissors beat paper!`);
-        playerScore++;
+        
         playerHand.addEventListener('animationend',function(){
             playerHand.classList.add('win');        // incase of win, add green border to hand vector
             computerHand.classList.add('lose');     // incase of loss, add red border to hand vector
+            playerScore++;
         }, {once:true});
 
     }else if(playerChoice=="paper" && computerChoice=="rock"){
         console.log(`You win! Paper beats rock!`);
-        playerScore++;
+        
         playerHand.addEventListener('animationend',function(){
             playerHand.classList.add('win');        // incase of win, add green border to hand vector
             computerHand.classList.add('lose');     // incase of loss, add red border to hand vector
+            playerScore++;
         }, {once:true});
 
     }else if(computerChoice=="rock" && playerChoice=="scissors"){
         console.log(`You lose! Rock beats scissors!`);
-        computerScore++;
         playerHand.addEventListener('animationend',function(){
             playerHand.classList.add('lose');       // incase of loss, add red border to hand vector
             computerHand.classList.add('win');      // incase of win, add green border to hand vector
+            computerScore++;
         }, {once:true});
 
     }else if(computerChoice=="scissors" && playerChoice=="paper"){
         console.log(`You lose! Scissors beat paper!`);
-        computerScore++;
+        
         playerHand.addEventListener('animationend',function(){
             playerHand.classList.add('lose');       // incase of loss, add red border to hand vector
             computerHand.classList.add('win');      // incase of win, add green border to hand vector
+            computerScore++;
         }, {once:true});
 
     }else if(computerChoice=="paper" && playerChoice=="rock"){
         console.log(`You lose! Paper beats rock!`);
-        computerScore++;
+        
         playerHand.addEventListener('animationend',function(){
             playerHand.classList.add('lose');       // incase of loss, add red border to hand vector
             computerHand.classList.add('win');      // incase of win, add green border to hand vector
+            computerScore++;
         }, {once:true});
     }
 
-    if(playerScore == 5){
+    if(playerScore >5){
         console.log('You win the game!');
         computerScore = 0;
         playerScore = 0;
-    }else if(computerScore == 5){
+    }else if(computerScore >5){
         console.log('You lose the game!');
         computerScore = 0;
         playerScore = 0;
     }
 
+    playerScoreTab.textContent = playerScore;
+    computerScoreTab.textContent = computerScore;
 }
 
 playerHand = document.createElement('img');
