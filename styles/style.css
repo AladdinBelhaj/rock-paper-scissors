@@ -53,7 +53,7 @@ h1{
 
 
 
-/* win/lose/draw border */
+/* win/lose/draw border around image node */
 
 .win{
     -webkit-filter: drop-shadow(3px 3px 0 rgb(0, 255, 0))

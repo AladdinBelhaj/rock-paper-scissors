@@ -1,12 +1,12 @@
-const btns = document.querySelectorAll('button');
-let playerScore = 0;
-let computerScore = 0;
+const btns = document.querySelectorAll('button');  // select all buttons
+let playerScore = 0;    // set player score to 0
+let computerScore = 0;  // set computer score to 0
 
-const playerScoreTab = document.querySelector('#playerScoreTab');
-const computerScoreTab = document.querySelector('#computerScoreTab');
+const playerScoreTab = document.querySelector('#playerScoreTab'); // select player score tab
+const computerScoreTab = document.querySelector('#computerScoreTab');  // select computer score tab
 
-playerScoreTab.textContent = playerScore;
-computerScoreTab.textContent = computerScore;
+playerScoreTab.textContent = playerScore;   // show the starting score (0)
+computerScoreTab.textContent = computerScore;   // show the starting score (0)
 
 
 
@@ -26,15 +26,15 @@ function getComputerChoice(){
     }
 }
 
-playerHand = document.createElement('img');
+playerHand = document.createElement('img'); // creates an empty image node
 
 function playerAnimation(playerChoice){
     container = document.querySelector('#container'); // select container
-    playerHand.src = `img/${playerChoice}-reverse.png`; // select image according to player choice
+    playerHand.src = `img/${playerChoice}-reverse.png`; // select image according to player choice in the empty image node
     
-    playerHand.classList.remove('win'); // remove style after every round
-    playerHand.classList.remove('lose');
-    playerHand.classList.remove('draw');
+    playerHand.classList.remove('win'); // remove style after every round (win is a green border around image node)
+    playerHand.classList.remove('lose'); // lose is a red border around image node
+    playerHand.classList.remove('draw'); // draw is a yellow border around image node
 
     container.appendChild(playerHand);  // add image node to container
     rotatePlayer(playerHand);   // enable image node animation
@@ -47,9 +47,9 @@ function computerAnimation(computerChoice){
     container = document.querySelector('#container'); // select container
     computerHand.src = `img/${computerChoice}.png`;  // select image according to computer choice
     
-    computerHand.classList.remove('win'); // remove style after every round
-    computerHand.classList.remove('lose');
-    computerHand.classList.remove('draw');
+    computerHand.classList.remove('win'); // remove style after every round (win is a green border around image node)
+    computerHand.classList.remove('lose');  // lose is a red border around image node
+    computerHand.classList.remove('draw');  // draw is a yellow border around image node
 
     container.appendChild(computerHand); // add image node to container 
     rotateComputer(computerHand); // enable image node animation
@@ -76,7 +76,7 @@ function rotatePlayer(img){
 
     if(playerChoice == computerChoice){
         playerHand.addEventListener('animationend',function(){
-            playerHand.classList.add('draw');           // incase of draw, add yellow border to image node
+            playerHand.classList.add('draw');           // incase of draw, add yellow border to both image nodes
             computerHand.classList.add('draw');
         }, {once:true});
         
@@ -85,44 +85,44 @@ function rotatePlayer(img){
         
 
         playerHand.addEventListener('animationend',function(){
-            playerHand.classList.add('win');        // incase of win, add green border to image node
-            computerHand.classList.add('lose');     // incase of loss, add red border to image node
+            playerHand.classList.add('win');        // incase of win, add green border to player image node
+            computerHand.classList.add('lose');     // incase of loss, add red border to computer image node
         }, {once:true});
 
     }else if(playerChoice=="scissors" && computerChoice=="paper"){
         playerScore++;
         playerHand.addEventListener('animationend',function(){
-            playerHand.classList.add('win');        // incase of win, add green border to image node
-            computerHand.classList.add('lose');     // incase of loss, add red border to image node
+            playerHand.classList.add('win');        // incase of win, add green border to player image node
+            computerHand.classList.add('lose');     // incase of loss, add red border to computer image node
         }, {once:true});
 
     }else if(playerChoice=="paper" && computerChoice=="rock"){
         playerScore++;
         playerHand.addEventListener('animationend',function(){
-            playerHand.classList.add('win');        // incase of win, add green border to image node
-            computerHand.classList.add('lose');     // incase of loss, add red border to image node
+            playerHand.classList.add('win');        // incase of win, add green border to player image node
+            computerHand.classList.add('lose');     // incase of loss, add red border to computer image node
         }, {once:true});
 
     }else if(computerChoice=="rock" && playerChoice=="scissors"){
         computerScore++;
         playerHand.addEventListener('animationend',function(){
-            playerHand.classList.add('lose');       // incase of loss, add red border to image node
-            computerHand.classList.add('win');      // incase of win, add green border to image node
+            playerHand.classList.add('lose');       // incase of loss, add red border to computer image node
+            computerHand.classList.add('win');      // incase of win, add green border to player image node
 
         }, {once:true});
 
     }else if(computerChoice=="scissors" && playerChoice=="paper"){
         computerScore++;
         playerHand.addEventListener('animationend',function(){
-            playerHand.classList.add('lose');       // incase of loss, add red border to image node
-            computerHand.classList.add('win');      // incase of win, add green border to image node
+            playerHand.classList.add('lose');       // incase of loss, add red border to computer image node
+            computerHand.classList.add('win');      // incase of win, add green border to player image node
         }, {once:true});
 
     }else if(computerChoice=="paper" && playerChoice=="rock"){
         computerScore++;
         playerHand.addEventListener('animationend',function(){
-            playerHand.classList.add('lose');       // incase of loss, add red border to image node
-            computerHand.classList.add('win');      // incase of win, add green border to image node
+            playerHand.classList.add('lose');       // incase of loss, add red border to computer image node
+            computerHand.classList.add('win');      // incase of win, add green border to player image node
             
         }, {once:true});
     }
