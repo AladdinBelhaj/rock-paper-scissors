@@ -1,4 +1,4 @@
-const btns = document.querySelectorAll('button');  // select all buttons
+const btns = document.querySelectorAll('img');  // select all buttons
 let playerScore = 0;    // set player score to 0
 let computerScore = 0;  // set computer score to 0
 
