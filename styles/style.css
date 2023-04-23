@@ -12,7 +12,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 97vh;
+  height: 98vh;
 }
 
 .buttons{
@@ -31,7 +31,11 @@ body{
 }
 
 
-.buttons, #playAgain, .footer{
+#playAgain{
+  text-align: center;
+}
+
+.buttons, .footer{
   align-self: center;
 }
 
