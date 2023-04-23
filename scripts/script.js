@@ -185,10 +185,10 @@ const mediaQuery = window.matchMedia('(max-width: 500px)');
 function handleViewportChange(event) {
   if (event.matches) {
 
-    playerHand.style.width = '40%';
-    computerHand.style.width = '40%';
-    playerHand.style.height = '40%';
-    computerHand.style.height = '40%';
+    playerHand.style.width = '45%';
+    computerHand.style.width = '45%';
+    playerHand.style.height = '45%';
+    computerHand.style.height = '45%';
   } else {
 
     playerHand.style.width = '';
