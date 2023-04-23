@@ -8,12 +8,13 @@ html {
 }
 
 
-
 body{
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
+  justify-content: space-between;
+  height: 97vh;
 }
+
 
 .buttons, #playAgain{
   align-self: center;
