@@ -7,15 +7,28 @@ html {
   font-family: 'VT323', monospace;
 }
 
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 100px;
+}
+
+.buttons{
+  align-self: center;
+}
 
 
 .scoreBoard{
   font-size: 30px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
+#result{
+  font-size: 35px;
+}
 
 h1{
   font-size: 45px;
@@ -28,6 +41,8 @@ h1{
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
+  height: 220px;
+  outline: 2px black solid;
   }
 
 
@@ -63,7 +78,7 @@ h1{
 /* animation */
 
 .rotate-90-br-cw {
-	animation: rotate-90-br-cw 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) reverse both;
+	animation: rotate-90-br-cw 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) reverse both;
 }
 
 
@@ -93,7 +108,7 @@ h1{
 
 
   .rotate-90-bl-ccw {
-    animation: rotate-90-bl-ccw 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) reverse both;
+    animation: rotate-90-bl-ccw 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) reverse both;
   }
 
 /* ----------------------------------------------

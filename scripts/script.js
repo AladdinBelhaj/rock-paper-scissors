@@ -1,6 +1,12 @@
 const btns = document.querySelectorAll('button');
 let playerScore = 0;
 let computerScore = 0;
+const playerScoreTab = document.querySelector('#playerScoreTab');
+const computerScoreTab = document.querySelector('#computerScoreTab');
+playerScoreTab.textContent = playerScore;
+computerScoreTab.textContent = computerScore;
+
+
 
 btns.forEach(btn =>{
     btn.addEventListener('click',playRound);
@@ -19,17 +25,13 @@ function getComputerChoice(){
 }
 
 
+
  function playRound(){
     const computerChoice = getComputerChoice();
     const playerChoice = this.id;
-    const playerScoreTab = document.querySelector('#playerScoreTab');
-    const computerScoreTab = document.querySelector('#computerScoreTab');
-
-
 
     playerHand = playerAnimation(playerChoice);
     computerHand = computerAnimation(computerChoice);
-
 
 
     if(playerChoice == computerChoice){
@@ -37,28 +39,25 @@ function getComputerChoice(){
             playerHand.classList.add('draw');           // incase of draw, add yellow border to hand vector
             computerHand.classList.add('draw');
         }, {once:true});
-
+        
     }else if(playerChoice=="rock" && computerChoice=="scissors"){
         playerScore++;
+        
+
         playerHand.addEventListener('animationend',function(){
             playerHand.classList.add('win');        // incase of win, add green border to hand vector
             computerHand.classList.add('lose');     // incase of loss, add red border to hand vector
-    
         }, {once:true});
 
     }else if(playerChoice=="scissors" && computerChoice=="paper"){
         playerScore++;
-
         playerHand.addEventListener('animationend',function(){
             playerHand.classList.add('win');        // incase of win, add green border to hand vector
             computerHand.classList.add('lose');     // incase of loss, add red border to hand vector
-            
         }, {once:true});
 
     }else if(playerChoice=="paper" && computerChoice=="rock"){
-        console.log(`You win! Paper beats rock!`);
         playerScore++;
-
         playerHand.addEventListener('animationend',function(){
             playerHand.classList.add('win');        // incase of win, add green border to hand vector
             computerHand.classList.add('lose');     // incase of loss, add red border to hand vector
@@ -66,11 +65,10 @@ function getComputerChoice(){
 
     }else if(computerChoice=="rock" && playerChoice=="scissors"){
         computerScore++;
-
         playerHand.addEventListener('animationend',function(){
             playerHand.classList.add('lose');       // incase of loss, add red border to hand vector
             computerHand.classList.add('win');      // incase of win, add green border to hand vector
-            
+
         }, {once:true});
 
     }else if(computerChoice=="scissors" && playerChoice=="paper"){
@@ -78,7 +76,6 @@ function getComputerChoice(){
         playerHand.addEventListener('animationend',function(){
             playerHand.classList.add('lose');       // incase of loss, add red border to hand vector
             computerHand.classList.add('win');      // incase of win, add green border to hand vector
-            
         }, {once:true});
 
     }else if(computerChoice=="paper" && playerChoice=="rock"){
@@ -94,17 +91,50 @@ function getComputerChoice(){
         btns.forEach(btn =>{
             btn.classList.add('end');
         });
+        document.querySelector('#result').classList.remove('end');
         document.querySelector('#result').textContent = "You Win!"
+        playAgain.classList.remove('end');
     }else if(computerScore == 5){
         btns.forEach(btn =>{
             btn.classList.add('end');
         });
+        document.querySelector('#result').remove.add('end');
         document.querySelector('#result').textContent = "You Lose!"
+        playAgain.classList.remove('end');
     }
 
     playerScoreTab.textContent = playerScore;
     computerScoreTab.textContent = computerScore;
 }
+
+
+playAgain = document.querySelector('#playAgain');
+playAgain.addEventListener('click',reset);
+
+
+function reset(){
+    playerScore = 0;
+    computerScore = 0;
+
+    playerScoreTab.textContent = playerScore;
+    computerScoreTab.textContent = computerScore;
+
+    btns.forEach(btn =>{
+        btn.classList.remove('end');
+    });
+    this.classList.add('end');
+    document.querySelector('#result').classList.add('end');
+}
+
+
+
+
+
+
+
+
+
+
 
 playerHand = document.createElement('img');
 
