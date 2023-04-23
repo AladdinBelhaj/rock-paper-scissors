@@ -36,6 +36,7 @@ function playerAnimation(playerChoice){
     playerHand.classList.remove('lose'); // lose is a red border around image node
     playerHand.classList.remove('draw'); // draw is a yellow border around image node
 
+    handleViewportChange(mediaQuery);
     container.appendChild(playerHand);  // add image node to container
     rotatePlayer(playerHand);   // enable image node animation
     return playerHand;  // return image node to be used in playRound
@@ -51,6 +52,7 @@ function computerAnimation(computerChoice){
     computerHand.classList.remove('lose');  // lose is a red border around image node
     computerHand.classList.remove('draw');  // draw is a yellow border around image node
 
+    handleViewportChange(mediaQuery);
     container.appendChild(computerHand); // add image node to container 
     rotateComputer(computerHand); // enable image node animation
     return computerHand; // return image node to be used in playRound
@@ -173,3 +175,31 @@ function reset(){
     this.classList.add('end');  // hide play again option after clicked
     document.querySelector('#result').classList.add('end'); // hide result of previous game
 }
+
+
+
+
+const mediaQuery = window.matchMedia('(max-width: 500px)');
+
+
+function handleViewportChange(event) {
+  if (event.matches) {
+
+    playerHand.style.width = '40%';
+    computerHand.style.width = '40%';
+    playerHand.style.height = '40%';
+    computerHand.style.height = '40%';
+  } else {
+
+    playerHand.style.width = '';
+    computerHand.style.width = '';
+    playerHand.style.height = '';
+    computerHand.style.height = '';
+  }
+}
+
+
+mediaQuery.addEventListener('change', handleViewportChange);
+
+
+
