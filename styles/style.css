@@ -26,14 +26,17 @@ body{
   transition: transform .2s;
 }
 
-.buttons img:hover{
+#playAgain{
+  text-align: center;
+  transition: transform .2s;
+}
+
+.buttons img:hover, #playAgain:hover{
   transform: scale(1.1);
 }
 
 
-#playAgain{
-  text-align: center;
-}
+
 
 .buttons, .footer{
   align-self: center;
